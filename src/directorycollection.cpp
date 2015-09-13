@@ -27,9 +27,7 @@
  * a set of zipios::DirectoryEntry objects.
  */
 
-#if defined(_WINDOWS) || defined(WIN32) || defined(_WIN32) || defined(__WIN32)
-#define ZIPIOS_WINDOWS
-#endif
+#include "zipios_common.hpp"
 
 #include "zipios/directorycollection.hpp"
 
@@ -292,14 +290,14 @@ void DirectoryCollection::load(FilePath const& subdir)
              * (require utf8 -> wchar_t, then use _wfindfirsti64().)
              * We'll have to update the next() function too, of course.
              */
-            m_handle = _findfirsti64(path.getName().c_str(), &m_findinfo);
+            m_handle = _findfirst(path.filename().c_str(), &m_fileinfo);
             if(m_handle == 0)
             {
                 if(errno == ENOENT)
                 {
                     // this can happen, the directory is empty and thus has
                     // absolutely no information
-                    f_read_first = true;
+                    m_read_first = true;
                 }
                 else
                 {
@@ -322,7 +320,7 @@ void DirectoryCollection::load(FilePath const& subdir)
         {
             if(m_read_first)
             {
-                __int64 const r(_findnexti64(m_handle, &m_fileinfo));
+                __int64 const r(_findnext(m_handle, &m_fileinfo));
                 if(r != 0)
                 {
                     if(errno != ENOENT)

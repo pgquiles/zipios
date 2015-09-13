@@ -35,6 +35,14 @@
 #include <vector>
 #include <sstream>
 
+#if defined(_WINDOWS) || defined(WIN32) || defined(_WIN32) || defined(__WIN32)
+#define ZIPIOS_WINDOWS
+#endif
+
+#if defined(_MSC_VER)
+#include <BaseTsd.h>
+typedef SSIZE_T ssize_t;
+#endif
 
 /** \brief Contatenate two vectors together.
  *

@@ -428,7 +428,11 @@ bool FilePath::isBlockSpecial() const
 bool FilePath::isSocket() const
 {
     check();
-    return m_exists && S_ISSOCK(m_stat.st_mode);
+    return m_exists 
+#ifndef ZIPIOS_WINDOWS
+    && S_ISSOCK(m_stat.st_mode)
+#endif
+    ;
 }
 
 
@@ -442,7 +446,12 @@ bool FilePath::isSocket() const
 bool FilePath::isFifo() const
 {
     check();
-    return m_exists && S_ISFIFO(m_stat.st_mode);
+    return m_exists 
+
+#ifndef ZIPIOS_WINDOWS 
+    && S_ISFIFO(m_stat.st_mode)
+#endif    
+    ;
 }
 
 
