@@ -631,7 +631,7 @@ SCENARIO("FilePath against existing files on disk", "[FilePath]")
         system("rm -rf filepath-test");
 #pragma GCC diagnostic pop
         // create a directory
-        REQUIRE(mkdir("filepath-test", 0777) == 0);
+        REQUIRE(mkdir_("filepath-test", 0777) == 0);
 
         WHEN("creating a FilePath object")
         {

@@ -1247,7 +1247,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
         static_cast<void>(system("rm -rf filepath-test"));
 
         // create a directory
-        REQUIRE(mkdir("filepath-test", 0777) == 0);
+        REQUIRE(mkdir_("filepath-test", 0777) == 0);
 
         zipios::DirectoryEntry de(zipios::FilePath("filepath-test"), "");
 

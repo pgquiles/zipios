@@ -39,8 +39,10 @@
 #include <limits.h>
 
 #if defined(_MSC_VER)
-#include <direct.h>
-#define mkdir(path, attr) _mkdir(path)
+# include <direct.h>
+# define mkdir_(path, mode) mkdir(path)
+#else
+# define mkdir_(path, mode) mkdir(path, mode)
 #endif
 
 #if defined(_MSC_VER)

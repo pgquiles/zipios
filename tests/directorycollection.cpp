@@ -886,7 +886,7 @@ TEST_CASE("DirectoryCollection with an existing directory that gets deleted", "[
 {
     // create a directory
     system("rm -rf tree"); // clean up, just in case
-    REQUIRE(mkdir("tree", 0777) == 0);
+    REQUIRE(mkdir_("tree", 0777) == 0);
 
     // the initialization works as expected!
     zipios::DirectoryCollection dc(zipios::DirectoryCollection("tree", false));
@@ -905,7 +905,7 @@ TEST_CASE("DirectoryCollection with an empty directory", "[DirectoryCollection] 
 {
     // create a directory
     system("rm -rf tree"); // clean up, just in case
-    REQUIRE(mkdir("tree", 0777) == 0);
+    REQUIRE(mkdir_("tree", 0777) == 0);
 
     SECTION("verify that the object looks as expected")
     {
