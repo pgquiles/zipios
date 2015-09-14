@@ -61,12 +61,6 @@ protected:
     mutable bool                    m_entries_loaded = false;
     bool                            m_recursive = true;
     FilePath                        m_filepath;
-
-#ifdef ZIPIOS_WINDOWS
-    intptr_t		 	   intptr_t;
-    struct _finddata_t             m_fileinfo;
-    bool			   m_read_first;
-#endif
 };
 
 
