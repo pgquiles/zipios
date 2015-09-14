@@ -277,7 +277,7 @@ TEST_CASE("DirectoryCollection with valid trees of files", "[DirectoryCollection
                         REQUIRE((*it)->getComment().empty());
                         REQUIRE((*it)->getCompressedSize() == (*it)->getSize());
                         REQUIRE((*it)->getCrc() == 0);
-                        REQUIRE((*it)->getEntryOffset() == 0);
+                        REQUIRE((*it)->getEntryOffset() == std::streampos(0));
                         REQUIRE((*it)->getExtra().empty());
                         REQUIRE((*it)->getHeaderSize() == 0);
                         REQUIRE((*it)->getMethod() == zipios::StorageMethod::STORED);
@@ -338,7 +338,7 @@ TEST_CASE("DirectoryCollection with valid trees of files", "[DirectoryCollection
                         REQUIRE((*it)->getComment().empty());
                         REQUIRE((*it)->getCompressedSize() == (*it)->getSize());
                         REQUIRE((*it)->getCrc() == 0);
-                        REQUIRE((*it)->getEntryOffset() == 0);
+                        REQUIRE((*it)->getEntryOffset() == std::streampos(0));
                         REQUIRE((*it)->getExtra().empty());
                         REQUIRE((*it)->getHeaderSize() == 0);
                         REQUIRE((*it)->getMethod() == zipios::StorageMethod::STORED);
@@ -395,7 +395,7 @@ TEST_CASE("DirectoryCollection with valid trees of files", "[DirectoryCollection
                         REQUIRE((*it)->getComment().empty());
                         REQUIRE((*it)->getCompressedSize() == (*it)->getSize());
                         REQUIRE((*it)->getCrc() == 0);
-                        REQUIRE((*it)->getEntryOffset() == 0);
+                        REQUIRE((*it)->getEntryOffset() == std::streampos(0));
                         REQUIRE((*it)->getExtra().empty());
                         REQUIRE((*it)->getHeaderSize() == 0);
                         REQUIRE((*it)->getMethod() == zipios::StorageMethod::STORED);
@@ -452,7 +452,7 @@ TEST_CASE("DirectoryCollection with valid trees of files", "[DirectoryCollection
                         REQUIRE((*it)->getComment().empty());
                         REQUIRE((*it)->getCompressedSize() == (*it)->getSize());
                         REQUIRE((*it)->getCrc() == 0);
-                        REQUIRE((*it)->getEntryOffset() == 0);
+                        REQUIRE((*it)->getEntryOffset() == std::streampos(0));
                         REQUIRE((*it)->getExtra().empty());
                         REQUIRE((*it)->getHeaderSize() == 0);
                         REQUIRE((*it)->getMethod() == zipios::StorageMethod::STORED);
@@ -608,7 +608,7 @@ TEST_CASE("DirectoryCollection with valid trees of files", "[DirectoryCollection
                         REQUIRE((*it)->getComment().empty());
                         REQUIRE((*it)->getCompressedSize() == (*it)->getSize());
                         REQUIRE((*it)->getCrc() == 0);
-                        REQUIRE((*it)->getEntryOffset() == 0);
+                        REQUIRE((*it)->getEntryOffset() == std::streampos(0));
                         REQUIRE((*it)->getExtra().empty());
                         REQUIRE((*it)->getHeaderSize() == 0);
                         REQUIRE((*it)->getMethod() == zipios::StorageMethod::STORED);
@@ -662,7 +662,7 @@ TEST_CASE("DirectoryCollection with valid trees of files", "[DirectoryCollection
                         REQUIRE((*it)->getComment().empty());
                         REQUIRE((*it)->getCompressedSize() == (*it)->getSize());
                         REQUIRE((*it)->getCrc() == 0);
-                        REQUIRE((*it)->getEntryOffset() == 0);
+                        REQUIRE((*it)->getEntryOffset() == std::streampos(0));
                         REQUIRE((*it)->getExtra().empty());
                         REQUIRE((*it)->getHeaderSize() == 0);
                         REQUIRE((*it)->getMethod() == zipios::StorageMethod::STORED);
@@ -717,7 +717,7 @@ TEST_CASE("DirectoryCollection with valid trees of files", "[DirectoryCollection
                         REQUIRE((*it)->getComment().empty());
                         REQUIRE((*it)->getCompressedSize() == (*it)->getSize());
                         REQUIRE((*it)->getCrc() == 0);
-                        REQUIRE((*it)->getEntryOffset() == 0);
+                        REQUIRE((*it)->getEntryOffset() == std::streampos(0));
                         REQUIRE((*it)->getExtra().empty());
                         REQUIRE((*it)->getHeaderSize() == 0);
                         REQUIRE((*it)->getMethod() == zipios::StorageMethod::STORED);
@@ -772,7 +772,7 @@ TEST_CASE("DirectoryCollection with valid trees of files", "[DirectoryCollection
                         REQUIRE((*it)->getComment().empty());
                         REQUIRE((*it)->getCompressedSize() == (*it)->getSize());
                         REQUIRE((*it)->getCrc() == 0);
-                        REQUIRE((*it)->getEntryOffset() == 0);
+                        REQUIRE((*it)->getEntryOffset() == std::streampos(0));
                         REQUIRE((*it)->getExtra().empty());
                         REQUIRE((*it)->getHeaderSize() == 0);
                         REQUIRE((*it)->getMethod() == zipios::StorageMethod::STORED);
@@ -937,7 +937,7 @@ TEST_CASE("DirectoryCollection with an empty directory", "[DirectoryCollection] 
                 REQUIRE((*it)->getComment().empty());
                 REQUIRE((*it)->getCompressedSize() == 0);
                 REQUIRE((*it)->getCrc() == 0);
-                REQUIRE((*it)->getEntryOffset() == 0);
+                REQUIRE((*it)->getEntryOffset() == std::streampos(0));
                 REQUIRE((*it)->getExtra().empty());
                 REQUIRE((*it)->getHeaderSize() == 0);
                 REQUIRE((*it)->getMethod() == zipios::StorageMethod::STORED);

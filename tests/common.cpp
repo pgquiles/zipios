@@ -664,7 +664,7 @@ SCENARIO("Write to file", "[zipios_common] [io]")
             {
                 std::ifstream is("io.bin", std::ios::in | std::ios::binary);
                 is.seekg(0, std::ios::end);
-                REQUIRE(is.tellg() == 8);
+                REQUIRE(is.tellg() == std::streampos(8));
                 is.seekg(0, std::ios::beg);
 
                 char buf[8];
@@ -696,7 +696,7 @@ SCENARIO("Write to file", "[zipios_common] [io]")
             {
                 std::ifstream is("io.bin", std::ios::in | std::ios::binary);
                 is.seekg(0, std::ios::end);
-                REQUIRE(is.tellg() == 8);
+                REQUIRE(is.tellg() == std::streampos(8));
                 is.seekg(0, std::ios::beg);
 
                 char buf[8];
@@ -728,7 +728,7 @@ SCENARIO("Write to file", "[zipios_common] [io]")
             {
                 std::ifstream is("io.bin", std::ios::in | std::ios::binary);
                 is.seekg(0, std::ios::end);
-                REQUIRE(is.tellg() == 10);
+                REQUIRE(is.tellg() == std::streampos(10));
                 is.seekg(0, std::ios::beg);
 
                 char buf[10];
@@ -761,7 +761,7 @@ SCENARIO("Write to file", "[zipios_common] [io]")
             {
                 std::ifstream is("io.bin", std::ios::in | std::ios::binary);
                 is.seekg(0, std::ios::end);
-                REQUIRE(is.tellg() == 6);
+                REQUIRE(is.tellg() == std::streampos(6));
                 is.seekg(0, std::ios::beg);
 
                 char buf[6];
@@ -792,7 +792,7 @@ SCENARIO("Write to file", "[zipios_common] [io]")
             {
                 std::ifstream is("io.bin", std::ios::in | std::ios::binary);
                 is.seekg(0, std::ios::end);
-                REQUIRE(is.tellg() == 7);
+                REQUIRE(is.tellg() == std::streampos(7));
                 is.seekg(0, std::ios::beg);
 
                 char buf[7];
@@ -832,7 +832,7 @@ SCENARIO("Write to file", "[zipios_common] [io]")
             {
                 std::ifstream is("io.bin", std::ios::in | std::ios::binary);
                 is.seekg(0, std::ios::end);
-                REQUIRE(is.tellg() == 13);
+                REQUIRE(is.tellg() == std::streampos(13));
                 is.seekg(0, std::ios::beg);
 
                 char buf[13];
@@ -870,7 +870,7 @@ SCENARIO("Write to file", "[zipios_common] [io]")
             {
                 std::ifstream is("io.bin", std::ios::in | std::ios::binary);
                 is.seekg(0, std::ios::end);
-                REQUIRE(is.tellg() == 9);
+                REQUIRE(is.tellg() == std::streampos(9));
                 is.seekg(0, std::ios::beg);
 
                 char buf[9];

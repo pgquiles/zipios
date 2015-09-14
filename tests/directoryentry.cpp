@@ -77,7 +77,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
             REQUIRE(de.getComment().empty());
             REQUIRE(de.getCompressedSize() == 0);
             REQUIRE(de.getCrc() == 0);
-            REQUIRE(de.getEntryOffset() == 0);
+            REQUIRE(de.getEntryOffset() == std::streampos(0));
             REQUIRE(de.getExtra().empty());
             REQUIRE(de.getHeaderSize() == 0);
             REQUIRE(de.getLevel() == g_expected_level);
@@ -109,7 +109,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
             REQUIRE(clone->getComment().empty());
             REQUIRE(clone->getCompressedSize() == 0);
             REQUIRE(clone->getCrc() == 0);
-            REQUIRE(clone->getEntryOffset() == 0);
+            REQUIRE(clone->getEntryOffset() == std::streampos(0));
             REQUIRE(clone->getExtra().empty());
             REQUIRE(clone->getHeaderSize() == 0);
             REQUIRE(clone->getLevel() == g_expected_level);
@@ -136,7 +136,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment() == "new comment");
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -161,7 +161,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment() == "new comment");
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -197,7 +197,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -226,7 +226,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -261,7 +261,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -286,7 +286,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -321,7 +321,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE_FALSE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -347,7 +347,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE_FALSE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -379,7 +379,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                     REQUIRE(de.getComment().empty());
                     REQUIRE(de.getCompressedSize() == 0);
                     REQUIRE(de.getCrc() == 0);
-                    REQUIRE(de.getEntryOffset() == 0);
+                    REQUIRE(de.getEntryOffset() == std::streampos(0));
                     REQUIRE(de.getExtra().empty());
                     REQUIRE(de.getHeaderSize() == 0);
                     REQUIRE(de.getLevel() == level);
@@ -404,7 +404,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                     REQUIRE(clone->getComment().empty());
                     REQUIRE(clone->getCompressedSize() == 0);
                     REQUIRE(clone->getCrc() == 0);
-                    REQUIRE(clone->getEntryOffset() == 0);
+                    REQUIRE(clone->getEntryOffset() == std::streampos(0));
                     REQUIRE(clone->getExtra().empty());
                     REQUIRE(clone->getHeaderSize() == 0);
                     REQUIRE(clone->getLevel() == level);
@@ -463,7 +463,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -488,7 +488,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -524,7 +524,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == r);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -549,7 +549,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == r);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -581,7 +581,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -606,7 +606,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -637,7 +637,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -662,7 +662,7 @@ SCENARIO("DirectoryEntry with invalid paths", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -766,7 +766,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == file_size);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -787,7 +787,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == file_size);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -809,7 +809,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment() == "new comment");
                 REQUIRE(de.getCompressedSize() == file_size);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -830,7 +830,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment() == "new comment");
                 REQUIRE(clone->getCompressedSize() == file_size);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -862,7 +862,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == file_size);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -883,7 +883,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == file_size);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -912,7 +912,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == file_size);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -933,7 +933,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == file_size);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -962,7 +962,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == file_size);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE_FALSE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -984,7 +984,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == file_size);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE_FALSE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -1016,7 +1016,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                         REQUIRE(de.getComment().empty());
                         REQUIRE(de.getCompressedSize() == file_size);
                         REQUIRE(de.getCrc() == 0);
-                        REQUIRE(de.getEntryOffset() == 0);
+                        REQUIRE(de.getEntryOffset() == std::streampos(0));
                         REQUIRE(de.getExtra().empty());
                         REQUIRE(de.getHeaderSize() == 0);
                         REQUIRE(de.getLevel() == level);
@@ -1048,7 +1048,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == file_size);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -1069,7 +1069,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == file_size);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -1098,7 +1098,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == r);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -1119,7 +1119,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == r);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -1150,7 +1150,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == file_size);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -1171,7 +1171,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == file_size);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -1196,7 +1196,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == file_size);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_expected_level);
@@ -1217,7 +1217,7 @@ TEST_CASE("DirectoryEntry with one valid file", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == file_size);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_expected_level);
@@ -1260,7 +1260,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
             REQUIRE(de.getComment().empty());
             REQUIRE(de.getCompressedSize() == 0);
             REQUIRE(de.getCrc() == 0);
-            REQUIRE(de.getEntryOffset() == 0);
+            REQUIRE(de.getEntryOffset() == std::streampos(0));
             REQUIRE(de.getExtra().empty());
             REQUIRE(de.getHeaderSize() == 0);
             REQUIRE(de.getLevel() == g_directory_level);
@@ -1281,7 +1281,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
             REQUIRE(clone->getComment().empty());
             REQUIRE(clone->getCompressedSize() == 0);
             REQUIRE(clone->getCrc() == 0);
-            REQUIRE(clone->getEntryOffset() == 0);
+            REQUIRE(clone->getEntryOffset() == std::streampos(0));
             REQUIRE(clone->getExtra().empty());
             REQUIRE(clone->getHeaderSize() == 0);
             REQUIRE(clone->getLevel() == g_directory_level);
@@ -1306,7 +1306,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment() == "new comment");
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_directory_level);
@@ -1327,7 +1327,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment() == "new comment");
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_directory_level);
@@ -1361,7 +1361,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_directory_level);
@@ -1382,7 +1382,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_directory_level);
@@ -1415,7 +1415,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_directory_level);
@@ -1436,7 +1436,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_directory_level);
@@ -1469,7 +1469,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE_FALSE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_directory_level);
@@ -1491,7 +1491,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE_FALSE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_directory_level);
@@ -1522,7 +1522,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                     REQUIRE(de.getComment().empty());
                     REQUIRE(de.getCompressedSize() == 0);
                     REQUIRE(de.getCrc() == 0);
-                    REQUIRE(de.getEntryOffset() == 0);
+                    REQUIRE(de.getEntryOffset() == std::streampos(0));
                     REQUIRE(de.getExtra().empty());
                     REQUIRE(de.getHeaderSize() == 0);
                     REQUIRE(de.getLevel() == g_directory_level);
@@ -1558,7 +1558,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_directory_level);
@@ -1579,7 +1579,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_directory_level);
@@ -1613,7 +1613,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == r);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_directory_level);
@@ -1634,7 +1634,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == r);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_directory_level);
@@ -1664,7 +1664,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_directory_level);
@@ -1685,7 +1685,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_directory_level);
@@ -1714,7 +1714,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(de.getComment().empty());
                 REQUIRE(de.getCompressedSize() == 0);
                 REQUIRE(de.getCrc() == 0);
-                REQUIRE(de.getEntryOffset() == 0);
+                REQUIRE(de.getEntryOffset() == std::streampos(0));
                 REQUIRE(de.getExtra().empty());
                 REQUIRE(de.getHeaderSize() == 0);
                 REQUIRE(de.getLevel() == g_directory_level);
@@ -1735,7 +1735,7 @@ SCENARIO("DirectoryEntry for a valid directory", "[DirectoryEntry] [FileEntry]")
                 REQUIRE(clone->getComment().empty());
                 REQUIRE(clone->getCompressedSize() == 0);
                 REQUIRE(clone->getCrc() == 0);
-                REQUIRE(clone->getEntryOffset() == 0);
+                REQUIRE(clone->getEntryOffset() == std::streampos(0));
                 REQUIRE(clone->getExtra().empty());
                 REQUIRE(clone->getHeaderSize() == 0);
                 REQUIRE(clone->getLevel() == g_directory_level);

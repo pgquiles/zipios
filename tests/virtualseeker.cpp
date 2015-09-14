@@ -99,7 +99,7 @@ TEST_CASE("VirtualSeeker tests", "[zipios_common]")
         {
             vs.vseekg(is, 0, std::ios::beg);
             REQUIRE(is.tellg() == start_offset);
-            REQUIRE(vs.vtellg(is) == 0);
+            REQUIRE(vs.vtellg(is) == std::streampos(0));
 
             size_t const sz(std::min(max_read, FOUR));
             is.read(buf, sz);
@@ -127,7 +127,7 @@ TEST_CASE("VirtualSeeker tests", "[zipios_common]")
             {
                 vs.vseekg(is, 4, std::ios::cur);
                 REQUIRE(is.tellg() == start_offset + 8);
-                REQUIRE(vs.vtellg(is) == 8);
+                REQUIRE(vs.vtellg(is) == std::streampos(8));
 
                 size_t const sz2(std::min(max_read - 8UL, 4UL));
                 is.read(buf, sz2);
@@ -260,7 +260,7 @@ TEST_CASE("VirtualSeeker tests", "[zipios_common]")
 
         {
             vs.vseekg(is, 0, std::ios::beg);
-            REQUIRE(vs.vtellg(is) == 0);
+            REQUIRE(vs.vtellg(is) == std::streampos(0));
 
             size_t const sz(std::min(max_read2, FOUR));
             is.read(buf, sz);
