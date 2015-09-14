@@ -37,6 +37,11 @@
 
 #include <stdlib.h>
 
+#if defined(_MSC_VER)
+# include <process.h>
+#define getpid() _getpid()
+#endif
+
 
 // static variables
 namespace
