@@ -34,17 +34,6 @@
 #include <memory.h>
 
 
-#if !defined(S_ISREG) && defined(S_IFMT) && defined(S_IFREG)
-#define S_ISREG(m) (((m) & S_IFMT) == S_IFREG)
-#endif
-#if !defined(S_ISDIR) && defined(S_IFMT) && defined(S_IFDIR)
-#define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
-#endif
-#if !defined(S_ISCHR) && defined(S_IFMT) && defined(S_IFCHR)
-#define S_ISCHR(m) (((m) & S_IFMT) == S_IFCHR)
-#endif
-
-
 namespace zipios
 {
 
@@ -425,11 +414,7 @@ bool FilePath::isCharSpecial() const
 bool FilePath::isBlockSpecial() const
 {
     check();
-	return m_exists
-#ifndef ZIPIOS_WINDOWS
-		&& S_ISBLK(m_stat.st_mode)
-#endif
-		;
+	return m_exists && S_ISBLK(m_stat.st_mode);
 }
 
 
@@ -443,11 +428,7 @@ bool FilePath::isBlockSpecial() const
 bool FilePath::isSocket() const
 {
     check();
-    return m_exists 
-#ifndef ZIPIOS_WINDOWS
-    && S_ISSOCK(m_stat.st_mode)
-#endif
-    ;
+    return m_exists && S_ISSOCK(m_stat.st_mode);
 }
 
 
@@ -461,12 +442,7 @@ bool FilePath::isSocket() const
 bool FilePath::isFifo() const
 {
     check();
-    return m_exists 
-
-#ifndef ZIPIOS_WINDOWS 
-    && S_ISFIFO(m_stat.st_mode)
-#endif    
-    ;
+    return m_exists && S_ISFIFO(m_stat.st_mode);
 }
 
 
