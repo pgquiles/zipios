@@ -77,7 +77,7 @@ inline size_t getBufferSize()
 
 #endif //_MSC_VER
 
-#ifdef _WIN32
+#if defined(WIN32) || defined(_WIN32)
 
 // Needed for FilePath
 #define S_ISREG(mode)   (((mode) & _S_IFREG) == _S_IFREG)
