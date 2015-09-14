@@ -37,14 +37,11 @@
 #if !defined(S_ISREG) && defined(S_IFMT) && defined(S_IFREG)
 #define S_ISREG(m) (((m) & S_IFMT) == S_IFREG)
 #endif
-#if !defined(S_ISDIR) && defined(S_IFMT) && defined(S_IFREG)
-#define S_ISDIR(m) (((m) & S_IFMT) == S_IFREG)
+#if !defined(S_ISDIR) && defined(S_IFMT) && defined(S_IFDIR)
+#define S_ISDIR(m) (((m) & S_IFMT) == S_IFDIR)
 #endif
-#if !defined(S_ISCHR) && defined(S_IFMT) && defined(S_IFREG)
-#define S_ISCHR(m) (((m) & S_IFMT) == S_IFREG)
-#endif
-#if !defined(S_ISBLK) && defined(S_IFMT) && defined(S_IFREG)
-#define S_ISBLK(m) (((m) & S_IFMT) == S_IFREG)
+#if !defined(S_ISCHR) && defined(S_IFMT) && defined(S_IFCHR)
+#define S_ISCHR(m) (((m) & S_IFMT) == S_IFCHR)
 #endif
 
 
@@ -428,7 +425,11 @@ bool FilePath::isCharSpecial() const
 bool FilePath::isBlockSpecial() const
 {
     check();
-    return m_exists && S_ISBLK(m_stat.st_mode);
+	return m_exists
+#ifndef ZIPIOS_WINDOWS
+		&& S_ISBLK(m_stat.st_mode)
+#endif
+		;
 }
 
 
