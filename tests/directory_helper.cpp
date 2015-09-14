@@ -28,7 +28,9 @@
 
 #include <fstream>
 //
+#if !defined(_MSC_VER)
 #include <unistd.h>
+#endif
 #include <sys/stat.h>
 
 

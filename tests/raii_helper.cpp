@@ -26,7 +26,9 @@
 
 #include "tests.hpp"
 
+#if !defined(_MSC_VER)
 #include <unistd.h>
+#endif
 
 
 namespace zipios_test

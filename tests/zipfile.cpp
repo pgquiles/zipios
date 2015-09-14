@@ -35,7 +35,10 @@
 #include <algorithm>
 #include <fstream>
 
+#if !defined(_MSC_VER)
 #include <unistd.h>
+#endif
+
 #include <string.h>
 #include <zlib.h>
 

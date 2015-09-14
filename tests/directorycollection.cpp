@@ -35,11 +35,10 @@
 #include <memory>
 #include <vector>
 
+#if !defined(_MSC_VER)
 #include <unistd.h>
+#endif
 #include <string.h>
-
-
-
 
 
 SCENARIO("DirectoryCollection with invalid paths", "[DirectoryCollection] [FileCollection]")

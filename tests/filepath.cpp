@@ -31,7 +31,9 @@
 #include <fstream>
 
 #include <sys/stat.h>
+#if !defined(_MSC_VER)
 #include <unistd.h>
+#endif
 
 
 SCENARIO("FilePath that does not represent a file on disk", "[FilePath]")

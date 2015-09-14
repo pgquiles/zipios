@@ -34,7 +34,9 @@
 #include <fstream>
 
 #include <sys/stat.h>
+#if !defined(_MSC_VER)
 #include <unistd.h>
+#endif
 
 
 /** \brief Local definitions used globally in the DirectoryEntry tests.
