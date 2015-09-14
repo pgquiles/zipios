@@ -39,6 +39,10 @@
 #include <string.h>
 #include <zlib.h>
 
+#if defined(_MSC_VER)
+#include <io.h>
+#define truncate(path, size) { FILE * f = fopen(path,"wb"); _chsize(fileno(f), size); fclose(f); }
+#endif
 
 
 namespace
