@@ -57,6 +57,10 @@ else()
 endif()
 endif()
 
+if(MSVC)
+    set( CMAKE_CXX_FLAGS "-EHsc -DNOMINMAX" )
+endif()
+
 option(BUILD_SHARED_LIBS "Build the ${PROJECT_NAME} libraries shared." ON)
 
 if(BUILD_SHARED_LIBS)
