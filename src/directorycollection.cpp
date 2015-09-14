@@ -340,7 +340,7 @@ void DirectoryCollection::load(FilePath const& subdir)
         }
 
     private:
-        long                    m_handle = 0;
+        intptr_t                m_handle = 0;
         struct _finddata_t      m_fileinfo;
         bool                    m_read_first = 0;
     };
