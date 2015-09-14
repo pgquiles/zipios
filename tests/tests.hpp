@@ -38,6 +38,16 @@
 
 #include <limits.h>
 
+#if defined(_MSC_VER)
+#include <direct.h>
+#define mkdir(path, attr) _mkdir(path)
+#endif
+
+#if defined(_MSC_VER)
+# include <BaseTsd.h>
+  typedef SSIZE_T ssize_t;
+#endif
+
 
 #if defined(__sun) || defined(__sun__) || defined(__SunOS) || defined(__CYGWIN__)
 namespace std
