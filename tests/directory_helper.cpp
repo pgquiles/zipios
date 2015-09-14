@@ -85,7 +85,11 @@ file_t::file_t(type_t t, int children_count, std::string const& new_filename)
     {
         for(;;)
         {
+#ifdef _WIN32
+            size_t const l(rand() % 25 + 1);
+#else
             size_t const l(rand() % 100 + 1);
+#endif
             for(size_t idx(0); idx < l; ++idx)
             {
                 m_filename += g_letters[rand() % sizeof(g_letters)];
@@ -119,14 +123,14 @@ file_t::file_t(type_t t, int children_count, std::string const& new_filename)
         if(!os)
         {
             unlink(m_filename.c_str()); // LCOV_EXCL_LINE
-            throw std::runtime_error("failed creating regular file"); // LCOV_EXCL_LINE
+            throw std::runtime_error("failed creating regular file: '"+ m_filename + "'"); // LCOV_EXCL_LINE
         }
     }
     else if(t == type_t::DIRECTORY)
     {
-        if(mkdir(m_filename.c_str(), 0777) != 0)
+        if(mkdir_(m_filename.c_str(), 0777) != 0)
         {
-            throw std::runtime_error("failed creating directory"); // LCOV_EXCL_LINE
+            throw std::runtime_error("failed creating directory: '"+ m_filename + "'"); // LCOV_EXCL_LINE
         }
         chdir(m_filename.c_str());
         for(int i(0); i < children_count; ++i)
