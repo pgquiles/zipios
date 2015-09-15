@@ -292,15 +292,7 @@ void DirectoryCollection::load(FilePath const& subdir)
             m_handle = _findfirst(std::string(path + FilePath("*")).c_str(), &m_fileinfo);
             if(m_handle == -1)
             {
-                if(errno == ENOENT)
-                {
-                    // this can happen, the directory is empty and thus has
-                    // absolutely no information
-                }
-                else
-                {
-                    throw IOException("an I/O error occured while reading a directory");
-                }
+				throw IOException("an I/O error occured while reading a directory");
             }
         }
 
