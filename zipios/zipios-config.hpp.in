@@ -80,12 +80,15 @@ inline size_t getBufferSize()
 #if defined(WIN32) || defined(_WIN32)
 
 // Needed for FilePath
-#define S_ISREG(mode)   (((mode) & _S_IFREG) == _S_IFREG)
-#define S_ISDIR(mode)   (((mode) & _S_IFDIR) == _S_IFDIR)
-#define S_ISCHR(mode)   (((mode) & _S_IFCHR) == _S_IFCHR)
-#define S_ISBLK(mode)   0
 #define S_ISSOCK(mode)  0
-#define S_ISFIFO(mode)  (((mode) & _S_IFIFO) == _S_IFIFO)
+
+#ifdef _MSC_VER
+#  define S_ISREG(mode)   (((mode) & _S_IFREG) == _S_IFREG)
+#  define S_ISDIR(mode)   (((mode) & _S_IFDIR) == _S_IFDIR)
+#  define S_ISCHR(mode)   (((mode) & _S_IFCHR) == _S_IFCHR)
+#  define S_ISFIFO(mode)  (((mode) & _S_IFIFO) == _S_IFIFO)
+#  define S_ISBLK(mode)   0
+#endif
 
 // TODO: change to _stat64 or whatever is required to get full 64 bit support
 typedef struct stat     os_stat_t;
