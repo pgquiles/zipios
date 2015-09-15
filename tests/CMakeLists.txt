@@ -60,6 +60,9 @@ target_link_libraries( ${PROJECT_NAME}
     zipios
 )
 
+set_property(TARGET ${PROJECT_NAME}
+             PROPERTY CXX_STANDARD 11)
+
 add_custom_target(run_zipios_tests
     # You can use the --success command line option to see all the tests
     # as they run; it is a LOT of output though, thus by default we don't

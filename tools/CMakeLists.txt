@@ -32,70 +32,76 @@
 ###
 ### ZipIOS Tool
 ###
-project( zipios_tool )
-
-add_executable( ${PROJECT_NAME}
+add_executable( zipios_tool
     zipios.cpp
 )
 
-set_target_properties( ${PROJECT_NAME}
+set_target_properties( zipios_tool
     PROPERTIES OUTPUT_NAME zipios
 )
 
-target_link_libraries( ${PROJECT_NAME}
+target_link_libraries( zipios_tool
     zipios
 )
 
-install( TARGETS ${PROJECT_NAME}
+install( TARGETS zipios_tool
     DESTINATION ${BIN_INSTALL_DIR}
 )
+
+set_property(TARGET zipios_tool
+	     PROPERTY CXX_STANDARD 11)
 
 
 ###
 ### Append Zip Tool
 ###
-project( appendzip )
 
-add_executable( ${PROJECT_NAME}
+add_executable( appendzip
     appendzip.cpp
 )
 
-install( TARGETS ${PROJECT_NAME}
+install( TARGETS appendzip
     DESTINATION ${BIN_INSTALL_DIR}
 )
 
+set_property(TARGET appendzip
+	     PROPERTY CXX_STANDARD 11)
 
 
 ###
 ### DOS Time Tool
 ###
-project( dostime )
 
-add_executable( ${PROJECT_NAME}
+add_executable( dostime
     dostime.cpp
 )
 
-target_link_libraries( ${PROJECT_NAME}
+target_link_libraries( dostime
     zipios
 )
 
-install( TARGETS ${PROJECT_NAME}
+install( TARGETS dostime
     DESTINATION ${BIN_INSTALL_DIR}
 )
 
 
+set_property(TARGET dostime
+	     PROPERTY CXX_STANDARD 11)
+
 ###
 ### zipios_example.cpp
 ###
-project( zipios_example )
 
-add_executable( ${PROJECT_NAME}
+add_executable( zipios_example
     zipios_example.cpp
 )
 
-target_link_libraries( ${PROJECT_NAME}
+target_link_libraries( zipios_example
     zipios
 )
+
+set_property(TARGET zipios_example
+	     PROPERTY CXX_STANDARD 11)
 
 # DO NOT INSTALL THIS ONE, IT IS JUST AN EXAMPLE!
 
