@@ -38,14 +38,14 @@
 
 #include <limits.h>
 
-#if defined(_MSC_VER)
+#ifdef _WIN32
 # include <direct.h>
 # define mkdir_(path, mode) mkdir(path)
 #else
 # define mkdir_(path, mode) mkdir(path, mode)
 #endif
 
-#if defined(_MSC_VER)
+#ifdef _MSC_VER
 # include <BaseTsd.h>
   typedef SSIZE_T ssize_t;
 #endif
