@@ -281,23 +281,21 @@ void DirectoryCollection::load(FilePath const& subdir)
     struct read_dir_t
     {
         read_dir_t(FilePath const& path)
-            //: m_handle(0) -- auto-init
+            //: m_handle(-1) -- auto-init
             //, m_fileinfo() -- initialized below
-            //, m_read_first(false) -- auto-init
         {
             /** \TODO
              * Make necessary changes to support 64 bit and Unicode
              * (require utf8 -> wchar_t, then use _wfindfirsti64().)
              * We'll have to update the next() function too, of course.
              */
-            m_handle = _findfirst(path.filename().c_str(), &m_fileinfo);
-            if(m_handle == 0)
+            m_handle = _findfirst(std::string(path + FilePath("*")).c_str(), &m_fileinfo);
+            if(m_handle == -1)
             {
                 if(errno == ENOENT)
                 {
                     // this can happen, the directory is empty and thus has
                     // absolutely no information
-                    m_read_first = true;
                 }
                 else
                 {
@@ -310,7 +308,7 @@ void DirectoryCollection::load(FilePath const& subdir)
         {
             // a completely empty directory may give us a "null pointer"
             // when calling _[w]findfirst[i64]()
-            if(m_handle != 0)
+            if(m_handle != -1)
             {
                 _findclose(m_handle);
             }
@@ -318,31 +316,21 @@ void DirectoryCollection::load(FilePath const& subdir)
 
         std::string next()
         {
-            if(m_read_first)
+            if(_findnext(m_handle, &m_fileinfo) != 0)
             {
-                __int64 const r(_findnext(m_handle, &m_fileinfo));
-                if(r != 0)
+                if(errno != ENOENT)
                 {
-                    if(errno != ENOENT)
-                    {
-                        throw IOException("an I/O error occured while reading a directory");
-                    }
-                    return std::string();
+                    throw IOException("an I/O error occured while reading a directory");
                 }
-            }
-            else
-            {
-                // the _findfirst() includes a response, use it!
-                m_read_first = true;
+                return std::string();
             }
 
             return m_fileinfo.name;
         }
 
     private:
-        intptr_t                m_handle = 0;
+        intptr_t                m_handle = -1;
         struct _finddata_t      m_fileinfo;
-        bool                    m_read_first = 0;
     };
 #else
     struct read_dir_t
