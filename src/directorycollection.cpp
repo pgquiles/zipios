@@ -281,8 +281,9 @@ void DirectoryCollection::load(FilePath const& subdir)
     struct read_dir_t
     {
         read_dir_t(FilePath const& path)
-            //: m_handle(-1) -- auto-init
+            //: m_handle(-1) -- initialized in-class
             //, m_fileinfo() -- initialized below
+            //, m_read_first(false) -- initialized in-class
         {
             /** \TODO
              * Make necessary changes to support 64 bit and Unicode
@@ -292,7 +293,17 @@ void DirectoryCollection::load(FilePath const& subdir)
             m_handle = _findfirst(std::string(path + FilePath("*")).c_str(), &m_fileinfo);
             if(m_handle == -1)
             {
-				throw IOException("an I/O error occured while reading a directory");
+                if (errno == ENOENT)
+                {
+                    // this can happen, the directory is empty and thus has
+                    // absolutely no information
+                    // TODO: does m_fileinfo.name contain information usable in next()?
+                    throw IOException("entirely empty directory, not even . or ..");
+                }
+                else
+                {
+                    throw IOException("an I/O error occured while reading a directory");
+                }
             }
         }
 
@@ -308,13 +319,21 @@ void DirectoryCollection::load(FilePath const& subdir)
 
         std::string next()
         {
-            if(_findnext(m_handle, &m_fileinfo) != 0)
+            if (m_read_first)
             {
-                if(errno != ENOENT)
+                if (_findnext(m_handle, &m_fileinfo) != 0)
                 {
-                    throw IOException("an I/O error occured while reading a directory");
+                    if (errno != ENOENT)
+                    {
+                        throw IOException("an I/O error occured while reading a directory");
+                    }
+                    return std::string();
                 }
-                return std::string();
+            }
+            else
+            {
+                // the _findfirst() includes a response, use it!
+                m_read_first = true;
             }
 
             return m_fileinfo.name;
@@ -323,6 +342,7 @@ void DirectoryCollection::load(FilePath const& subdir)
     private:
         intptr_t                m_handle = -1;
         struct _finddata_t      m_fileinfo;
+        bool                    m_read_first = false;
     };
 #else
     struct read_dir_t
